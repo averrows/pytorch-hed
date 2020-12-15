@@ -1,25 +1,22 @@
 # pytorch-hed
-This is a personal reimplementation of Holistically-Nested Edge Detection [1] using PyTorch. Should you be making use of this work, please cite the paper accordingly. Also, make sure to adhere to the licensing terms of the authors. Should you be making use of this particular implementation, please acknowledge it appropriately [2].
+This is a personal reimplementation of Holistically-Nested Edge Detection [[1]](#references) using PyTorch based on the previous pytorch implementation by [sniklaus](https://github.com/sniklaus) [2](). If you would like to use of this work, please cite the paper accordingly. Also, make sure to adhere to the licensing terms of the authors. Moreover, if you will be making use of this particular implementation, please acknowledge the present [[3]](#references) implementation.
 
 <a href="https://arxiv.org/abs/1504.06375" rel="Paper"><img src="http://www.arxiv-sanity.com/static/thumbs/1504.06375v2.pdf.jpg" alt="Paper" width="100%"></a>
 
-For the original version of this work, please see: https://github.com/s9xie/hed
-<br />
-For another reimplementation based on Caffe, please see: https://github.com/zeakey/hed
+|   |GitHub|Ref|
+|---|---|---|
+|Original version based on Caffe | https://github.com/s9xie/hed | [[1]](#references) |
+|Another reimplementation based on Caffe | https://github.com/zeakey/hed |
+|Original reimplementation based on PyTorch | https://github.com/sniklaus/pytorch-hed | [[2]](#references)|
 
-## usage
+## Usage
 To run it on your own image, use the following command. Please make sure to see their paper / the code for more details.
 
 ```
 python run.py --model bsds500 --in ./images/sample.png --out ./out.png
 ```
 
-I am afraid that this reimplementation is not entirely true to the original Caffe version, even though it utilizes the official weights. It achieves an ODS=0.774 versus the official ODS=0.780 on the BSDS500 dataset, evaluated using [this code](https://github.com/zeakey/edgeval). Please feel free to contribute to this repository by submitting issues and pull requests.
-
-## comparison
-<p align="center"><img src="comparison/comparison.gif?raw=true" alt="Comparison"></p>
-
-## references
+## References
 ```
 [1]  @inproceedings{Xie_ICCV_2015,
          author = {Saining Xie and Zhuowen Tu},
@@ -35,5 +32,15 @@ I am afraid that this reimplementation is not entirely true to the original Caff
          title = {A Reimplementation of {HED} Using {PyTorch}},
          year = {2018},
          howpublished = {\url{https://github.com/sniklaus/pytorch-hed}}
+    }
+```
+
+
+```
+[3]  @misc{pytorch-hed-2,
+         author = {Davide Lanza},
+         title = {A New Reimplementation of {HED} Using {PyTorch}},
+         year = {2020},
+         howpublished = {\url{https://github.com/Davidelanz/pytorch-hed}}
     }
 ```
