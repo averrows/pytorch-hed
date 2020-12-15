@@ -1,0 +1,35 @@
+---
+# https://docs.travis-ci.com/user/customizing-the-build
+
+os: linux
+
+dist:
+  - bionic
+
+git:
+  depth: false
+
+language: python
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+
+# command to install dependencies
+install:
+  # install the required packages:
+  - pip install -r requirements.txt
+  # install quantum-robot package:
+  - pip install -e .
+  # for CodeCov integration:
+  - pip install coverage
+
+# command to run tests
+script:
+  # Run tests without coverage:
+  # - pytest
+  # Run tests with coverage:
+  - coverage run -m pytest
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
