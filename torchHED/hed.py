@@ -54,7 +54,9 @@ def estimate(tensor_in: torch.Tensor) -> torch.Tensor:
     assert(width_in == 480)
     assert(height_in == 320)
 
-    tensor_in = tensor_in.cuda()
+    if torch.cuda.is_available():
+        tensor_in = tensor_in.cuda()
+
     tensor_in = tensor_in.view(1, 3, height_in, width_in)
     tensor_out = net(tensor_in)
     tensor_out = tensor_out[0, :, :, :].cpu()
