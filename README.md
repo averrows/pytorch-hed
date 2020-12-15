@@ -1,5 +1,6 @@
 # Pytorch Holistically-Nested Edge Detection (HED)
 
+[![CodeFactor](https://www.codefactor.io/repository/github/davidelanz/pytorch-hed/badge)](https://www.codefactor.io/repository/github/davidelanz/pytorch-hed)
 [![travisCI](https://travis-ci.com/Davidelanz/pytorch-hed.svg?branch=master)](https://travis-ci.com/github/Davidelanz/pytorch-hed)
 [![codecov](https://codecov.io/gh/Davidelanz/pytorch-hed/branch/master/graph/badge.svg?token=MAAZAVSORH)](https://codecov.io/gh/Davidelanz/pytorch-hed)
 [![Pypi](https://img.shields.io/badge/Pypi-pytorch–hed-yellow)](https://pypi.org/project/pytorch-hed/)
