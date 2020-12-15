@@ -1,6 +1,8 @@
 # Pytorch Holistically-Nested Edge Detection (HED)
 
-[![](https://img.shields.io/badge/PyPi-0.2-green)](https://pypi.org/project/pytorch-hed/0.2/)
+[![travisCI](https://travis-ci.com/Davidelanz/pytorch-hed.svg?branch=master)](https://travis-ci.com/github/Davidelanz/pytorch-hed)
+[![codecov](https://codecov.io/gh/Davidelanz/pytorch-hed/branch/master/graph/badge.svg?token=MAAZAVSORH)](https://codecov.io/gh/Davidelanz/pytorch-hed)
+[![Pypi](https://img.shields.io/badge/Pypi-pytorch–hed-yellow)](https://pypi.org/project/pytorch-hed/)
 
 > This is a reimplementation in the form of a python package of Holistically-Nested Edge Detection [[1]](#references) using PyTorch based on the previous pytorch implementation by [sniklaus](https://github.com/sniklaus) [[2]](#references). If you would like to use of this work, please cite the paper accordingly. Also, make sure to adhere to the licensing terms of the authors. Moreover, if you will be making use of this particular implementation, please acknowledge the present [[3]](#references) implementation.
 
