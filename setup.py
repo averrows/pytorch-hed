@@ -13,9 +13,6 @@ with open(os.path.join(here, 'torchHED', '__version__.py')) as f:
 with open('README.md', 'r') as f:
     readme = f.read()
 
-with open('requirements.txt') as f:
-    REQUIREMENTS = f.read()
-
 # package configuration - for reference see:
 # https://setuptools.readthedocs.io/en/latest/setuptools.html#id9
 setup(
