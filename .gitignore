@@ -1,0 +1,10 @@
+pytorch_hed.egg-info/
+*/__pycache__/
+.vscode/
+Pipfile
+pytorch_hed.egg-info/
+**/__pycache__/
+dist/
+**/.ipynb_checkpoints/
+build/
+docs/_**

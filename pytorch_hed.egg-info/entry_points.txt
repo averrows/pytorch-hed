@@ -1,3 +1,0 @@
-[console_scripts]
-pytorch-hed = torchHED.entry_points:main
-
