@@ -1,5 +1,6 @@
 # Pytorch Holistically-Nested Edge Detection (HED)
-This is a personal reimplementation of Holistically-Nested Edge Detection [[1]](#references) using PyTorch based on the previous pytorch implementation by [sniklaus](https://github.com/sniklaus) [2](). If you would like to use of this work, please cite the paper accordingly. Also, make sure to adhere to the licensing terms of the authors. Moreover, if you will be making use of this particular implementation, please acknowledge the present [[3]](#references) implementation.
+
+> This is a reimplementation in the form of a python package of Holistically-Nested Edge Detection [[1]](#references) using PyTorch based on the previous pytorch implementation by [sniklaus](https://github.com/sniklaus) [[2]](#references). If you would like to use of this work, please cite the paper accordingly. Also, make sure to adhere to the licensing terms of the authors. Moreover, if you will be making use of this particular implementation, please acknowledge the present [[3]](#references) implementation.
 
 <a href="https://arxiv.org/abs/1504.06375" rel="Paper"><img src="http://www.arxiv-sanity.com/static/thumbs/1504.06375v2.pdf.jpg" alt="Paper" width="100%"></a>
 
@@ -10,13 +11,32 @@ This is a personal reimplementation of Holistically-Nested Edge Detection [[1]](
 |Original reimplementation based on PyTorch | https://github.com/sniklaus/pytorch-hed | [[2]](#references)|
 
 ## Usage
-To run it on your own image, use the following command. Please make sure to see their paper / the code for more details.
 
+First, you have to install the package with 
 ```
-python run.py --model bsds500 --in ./images/sample.png --out ./out.png
+pip install pytorch-hed
 ```
+or
+```
+git clone https://github.com/Davidelanz/pytorch-hed.git
+pip install ./pytorch-hed
+```
+
+To run it on your own image, use the following function:
+
+``` python
+import torchHED
+torchHED.process_img("path/to/input/image.png", "path/to/output/image.png")
+```
+
+## Results
+
+|Input | Original Caffe Implementation [[1]](#references) | pytorch-hed [[3]](#references) |
+|---|---|---|
+| ![sample](images/sample.png) | ![sample](images/official_caffe.png) | ![sample](images/torchHED.png) |
 
 ## References
+
 ```
 [1]  @inproceedings{Xie_ICCV_2015,
          author = {Saining Xie and Zhuowen Tu},
@@ -39,7 +59,7 @@ python run.py --model bsds500 --in ./images/sample.png --out ./out.png
 ```
 [3]  @misc{pytorch-hed-2,
          author = {Davide Lanza},
-         title = {A New Reimplementation of {HED} Using {PyTorch}},
+         title = {The {pytorch-hed} Python Package},
          year = {2020},
          howpublished = {\url{https://github.com/Davidelanz/pytorch-hed}}
     }
