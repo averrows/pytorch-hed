@@ -35,7 +35,7 @@ torchHED.process_img("path/to/input/image.png", "path/to/output/image.png")
 
 |Input | Original Caffe Implementation [[1]](#references) | pytorch-hed [[3]](#references) |
 |---|---|---|
-| ![sample](images/sample.png) | ![sample](images/official_caffe.png) | ![sample](images/torchHED.png) |
+| ![sample](https://github.com/Davidelanz/pytorch-hed/blob/master/images/sample.png?raw=true) | ![sample](https://github.com/Davidelanz/pytorch-hed/blob/master/images/official_caffe.png?raw=true) | ![sample](https://github.com/Davidelanz/pytorch-hed/blob/master/images/torchHED.png?raw=true) |
 
 ## References
 
