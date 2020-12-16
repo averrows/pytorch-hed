@@ -27,11 +27,16 @@ or, for the current (**unstable**) version
 pip install git+https://github.com/Davidelanz/pytorch-hed.git
 ```
 
-To run it on your own image, use the following function:
+Usage:
 
 ``` python
 import torchHED
-torchHED.process_img("path/to/input/image.png", "path/to/output/image.png")
+   
+# process a single image 
+torchHED.process_img("./images/sample.png", "./images/sample_processed.png")
+
+# process all images in a folder
+torchHED.process_folder("./input_folder", "./output_folder")
 ```
 
 ## Results
