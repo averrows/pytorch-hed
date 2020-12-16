@@ -18,14 +18,13 @@
 
 ## Usage
 
-First, you have to install the package with 
+First, you have to install the package (**stable**) with 
 ```
 pip install pytorch-hed
 ```
-or
+or, for the current (**unstable**) version 
 ```
-git clone https://github.com/Davidelanz/pytorch-hed.git
-pip install ./pytorch-hed
+pip install git+https://github.com/Davidelanz/pytorch-hed.git
 ```
 
 To run it on your own image, use the following function:
