@@ -8,3 +8,4 @@ dist/
 **/.ipynb_checkpoints/
 build/
 docs/_**
+*/test_imgs_out/

@@ -70,7 +70,8 @@ class Network(nn.Module):
 
         state_dict = torch.hub.load_state_dict_from_url(
             url='https://github.com/Davidelanz/pytorch-hed/releases/download/latest/pytorch-hed-network.pt',
-            progress=False)
+            progress=False,
+            file_name="pytorch-hed-network.pt")
         self.load_state_dict(state_dict, strict=False)
         #torch.save(self.state_dict, 'pytorch-hed-network.pt')
 
