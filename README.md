@@ -44,9 +44,22 @@ torchHED.process_folder("./input_folder", "./output_folder")
 
 ## Results
 
-|Input | Original Caffe Implementation [[1]](#references) | pytorch-hed [[3]](#references) |
-|---|---|---|
-| ![sample](https://github.com/Davidelanz/pytorch-hed/blob/master/images/sample.png?raw=true) | ![sample](https://github.com/Davidelanz/pytorch-hed/blob/master/images/official_caffe.png?raw=true) | ![sample](https://github.com/Davidelanz/pytorch-hed/blob/master/images/torchHED.png?raw=true) |
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Original Caffe Implementation <a href="#references">[1]</a></th>
+<th>pytorch-hed <a href="#references">[3]</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="https://github.com/Davidelanz/pytorch-hed/blob/master/images/sample.png?raw=true"><img src="https://github.com/Davidelanz/pytorch-hed/raw/master/images/sample.png?raw=true" alt="sample" style="max-width:100%;"></a></td>
+<td><a target="_blank" rel="noopener noreferrer" href="https://github.com/Davidelanz/pytorch-hed/blob/master/images/official_caffe.png?raw=true"><img src="https://github.com/Davidelanz/pytorch-hed/raw/master/images/official_caffe.png?raw=true" alt="sample" style="max-width:100%;"></a></td>
+<td><a target="_blank" rel="noopener noreferrer" href="https://github.com/Davidelanz/pytorch-hed/blob/master/images/torchHED.png?raw=true"><img src="https://github.com/Davidelanz/pytorch-hed/raw/master/images/torchHED.png?raw=true" alt="sample" style="max-width:100%;"></a></td>
+</tr>
+</tbody>
+</table>
 
 ## References
 
