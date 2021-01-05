@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-import glob
 import warnings
 from pathlib import Path
 
@@ -15,15 +14,15 @@ import torch.cuda
 from .network import Network
 
 
-def PIL2tensor(img: PIL.Image) -> torch.Tensor:
+def _PIL2tensor(img: PIL.Image) -> torch.Tensor:
     """Given a Pillow Image, returns a tensor 
     to be fed to the network.
 
     Args:
-        img (PIL.Image):
+        img (PIL.Image)
 
     Returns:
-        torch.Tensor:
+        torch.Tensor
     """
     array = np.array(img)
     array = array[:, :, ::-1].transpose(2, 0, 1)
@@ -33,8 +32,8 @@ def PIL2tensor(img: PIL.Image) -> torch.Tensor:
     return tensor
 
 
-def tensor2PIL(tensor: torch.Tensor) -> PIL.Image:
-    """"Given a tensor (e.g. the network's output),
+def _tensor2PIL(tensor: torch.Tensor) -> PIL.Image:
+    """Given a tensor (e.g. the network's output),
     returns it converted in a Pillow Image
 
     Args:
@@ -51,7 +50,7 @@ def tensor2PIL(tensor: torch.Tensor) -> PIL.Image:
     return img
 
 
-def load_imagelist(dir: str) -> list[str]:
+def _load_imagelist(dir: str) -> list[str]:
     """Given a directory, loads all the 
     ``.jpg``, ``.gif``, ``.png``, and ``.tga`` 
     files and returns a path list. 
@@ -77,12 +76,13 @@ def load_imagelist(dir: str) -> list[str]:
     return imgs
 
 
-def estimate(tensor_in: torch.Tensor) -> torch.Tensor:
+def _estimate(tensor_in: torch.Tensor, use_cuda : bool = False) -> torch.Tensor:
     """Applies HED to an input tensor containing an image,
-    returning a image tensor containing the estimated edges
+    returning a image tensor containing the _estimated edges
 
     Args:
         tensor_in (torch.Tensor)
+        use_cuda (bool): Use CUDA for processing images. Defaults to False
 
     Returns:
         torch.Tensor
@@ -97,7 +97,7 @@ def estimate(tensor_in: torch.Tensor) -> torch.Tensor:
 
     # Load the network
     net = Network()
-    if torch.cuda.is_available():
+    if use_cuda and torch.cuda.is_available():
         net.cuda()
     net.eval()
 
@@ -110,7 +110,7 @@ def estimate(tensor_in: torch.Tensor) -> torch.Tensor:
             " there is no guarantee for correctness for (W,H)" +
             " different from (480,320)")
 
-    if torch.cuda.is_available():
+    if use_cuda and torch.cuda.is_available():
         tensor_in = tensor_in.cuda()
 
     tensor_in = tensor_in.view(1, 3, height_in, width_in)
@@ -120,8 +120,26 @@ def estimate(tensor_in: torch.Tensor) -> torch.Tensor:
     return tensor_out
 
 
-def process_img(input_fn: str, output_fn: str) -> None:
-    """Given an image, applies to it HED and 
+def process_img(img: PIL.Image) -> PIL.Image:
+    """Given a Pillow image object, applies HED to it
+    and returns the processed PIL.Image
+
+    Args:
+        img (PIL.Image): Input image
+    
+    Returns:
+        PIL.Image: Output Image
+    """
+    # Img -> tensor
+    tensor_in = _PIL2tensor(img)
+    # Estimation
+    tensor_out = _estimate(tensor_in)
+    # Img <- tensor
+    img = _tensor2PIL(tensor_out)
+    return img
+
+def process_file(input_fn: str, output_fn: str) -> None:
+    """Given an image file, applies HED to it and 
     writes the output in another image
 
     Args:
@@ -130,12 +148,8 @@ def process_img(input_fn: str, output_fn: str) -> None:
     """
     # Load image
     img = PIL.Image.open(input_fn)
-    # Img -> tensor
-    tensor_in = PIL2tensor(img)
-    # Estimation
-    tensor_out = estimate(tensor_in)
-    # Img <- tensor
-    img = tensor2PIL(tensor_out)
+    # Process img
+    img = process_img(img)    
     # Store img
     img.save(output_fn)
 
@@ -148,9 +162,9 @@ def process_folder(input_dir: str, output_dir: str) -> None:
         input_dir (str): Input directory
         output_dir (str): Output directory
     """
-    imagelist = load_imagelist(input_dir)
+    imagelist = _load_imagelist(input_dir)
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     for path in imagelist:
         name = Path(path).name
-        process_img(path, os.path.join(output_dir, name))
+        process_file(path, os.path.join(output_dir, name))

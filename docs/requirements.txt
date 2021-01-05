@@ -1,4 +1,5 @@
 sphinx
-sphinx_rtd_theme 
+sphinx-autobuild
+sphinx-autodoc
+sphinx-rtd-theme 
 recommonmark
-pytorch-hed
