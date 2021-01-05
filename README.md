@@ -35,11 +35,15 @@ Usage:
 ``` python
 import torchHED
    
-# process a single image 
-torchHED.process_img("./images/sample.png", "./images/sample_processed.png")
+# process a single image file 
+torchHED.process_file("./images/sample.png", "./images/sample_processed.png")
 
 # process all images in a folder
 torchHED.process_folder("./input_folder", "./output_folder")
+
+# process a PIL.Image loaded in memory and return a new PIL.Image
+# img = PIL.Image.open("./images/sample.png")
+img_hed = torchHED.process_img(img)
 ```
 
 ## Results

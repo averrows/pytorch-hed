@@ -1,5 +1,4 @@
 sphinx
 sphinx-autobuild
-sphinx-autodoc
 sphinx-rtd-theme 
 recommonmark
