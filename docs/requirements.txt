@@ -3,3 +3,5 @@ sphinx-autobuild
 sphinx-rtd-theme 
 recommonmark
 numpy
+Pillow
+torch
